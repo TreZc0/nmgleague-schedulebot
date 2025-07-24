@@ -1,0 +1,9 @@
+{
+  "seasonNumber": 9,
+  "spreadsheetId": "YOUR_SPREADSHEET_ID",
+  "sheetName": "Restream Signups",
+  "sheetInputRow": 4,
+  "eventName": "NMG League",
+  "runEstimate": "1:45:00",
+  "runnerCount": 2
+} 

@@ -1,0 +1,16 @@
+{
+  "name": "nmg-league-restream-bot",
+  "version": "1.0.0",
+  "description": "Fetches scheduled NMG League races and pushes them to a Google Sheet.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.11.0",
+    "googleapis": "^154.0.0",
+    "google-auth-library": "^10.1.0"
+  },
+  "author": "TreZc0_",
+  "license": "MIT"
+} 
