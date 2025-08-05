@@ -229,7 +229,7 @@ async function processRaces() {
                 startRowIndex: inputRow - 1, // 0-based
                 endRowIndex: inputRow - 1 + 75, // sort 75 rows
                 startColumnIndex: 0,
-                endColumnIndex: 7, // columns A-G
+                endColumnIndex: 17, // columns A-Q
               },
               sortSpecs: [
                 {
