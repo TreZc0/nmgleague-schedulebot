@@ -163,7 +163,17 @@ async function processRaces() {
         `=IF(C${rowNum}="", "", TEXT(C${rowNum}, "ddd"))`, // D: Day in ET (formula)
         eventString,   // E: Event string
         estimate,      // F: Estimate
-        runnerCount    // G: Runner count
+       runnerCount,    // G: Runner count
+       "", // H
+       "", // I
+       "", // J
+       "", // K
+       "", // L
+       "", // M
+       "", // N
+       "", // O
+       "", // P
+       "" // Q
       ];
 
       // Insert row at inputRow (row 4, 0-based index is 3)
@@ -188,7 +198,7 @@ async function processRaces() {
       // Write values
       await sheets.spreadsheets.values.update({
         spreadsheetId: sheetId,
-        range: `${sheetName}!A${inputRow}:G${inputRow}`,
+        range: `${sheetName}!A${inputRow}:Q${inputRow}`,
         valueInputOption: 'USER_ENTERED',
         requestBody: { values: [row] }
       });
