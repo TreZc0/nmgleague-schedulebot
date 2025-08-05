@@ -12,12 +12,15 @@ const STATE_PATH = path.join(__dirname, 'state.json');
 const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
 
 // Load or initialize state
-let state = { lastRaceId: 0 };
+let state = { seen_ids: [] };
 if (fs.existsSync(STATE_PATH)) {
   try {
     state = JSON.parse(fs.readFileSync(STATE_PATH, 'utf8'));
   } catch (e) {
     console.warn('Failed to parse state.json, starting fresh.');
+  }
+  if (! 'seen_ids' in state) {
+    state = { seen_ids: [] }
   }
 }
 
@@ -99,8 +102,10 @@ async function processRaces() {
   try {
     const races = await fetchScheduledRaces(config.seasonNumber);
     const now = Math.floor(Date.now() / 1000);
+    // use a set for OpTiMiZaTiOn (a list would be fine at this cardinality realistically)
+    let seen = new Set(state.seen_ids);
     const newRaces = races.filter(r =>
-      r.id > (state.lastRaceId || 0) &&
+      !seen.has(r.id) &&
       r.state === 'Scheduled' &&
       r.scheduled_for && r.scheduled_for >= now
     );
@@ -188,7 +193,7 @@ async function processRaces() {
         requestBody: { values: [row] }
       });
       // Update state
-      state.lastRaceId = Math.max(state.lastRaceId, race.id);
+      state.seen_ids.add(race.id)
       fs.writeFileSync(STATE_PATH, JSON.stringify(state, null, 2));
     }
 
