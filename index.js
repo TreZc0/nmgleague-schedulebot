@@ -184,6 +184,7 @@ async function processRaces() {
         "", // O
         "", // P
         "", // Q
+        "" // R
       ];
 
       // Insert row at inputRow (row 4, 0-based index is 3)
@@ -229,7 +230,7 @@ async function processRaces() {
                 startRowIndex: inputRow - 1, // 0-based
                 endRowIndex: inputRow - 1 + 75, // sort 75 rows
                 startColumnIndex: 0,
-                endColumnIndex: 17, // columns A-Q
+                endColumnIndex: 18, // columns A-R
               },
               sortSpecs: [
                 {
