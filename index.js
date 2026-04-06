@@ -209,7 +209,7 @@ async function processRaces() {
       // Write values
       await sheets.spreadsheets.values.update({
         spreadsheetId: sheetId,
-        range: `${sheetName}!A${inputRow}:Q${inputRow}`,
+        range: `${sheetName}!A${inputRow}:R${inputRow}`,
         valueInputOption: "USER_ENTERED",
         requestBody: { values: [row] },
       });
